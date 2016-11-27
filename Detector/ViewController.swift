@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         personPic.image = UIImage(named: "face-1")
+
         detect()
     }
     
@@ -24,22 +25,22 @@ class ViewController: UIViewController {
         guard let personciImage = CIImage(image: personPic.image!) else {
             return
         }
-
+        
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
-        let faces = faceDetector.featuresInImage(personciImage)
-
-        // For converting the Core Image Coordinates to UIView Coordinates
+        let faces = faceDetector?.features(in: personciImage)
+        
+        // Convert Core Image Coordinate to UIView Coordinate
         let ciImageSize = personciImage.extent.size
-        var transform = CGAffineTransformMakeScale(1, -1)
-        transform = CGAffineTransformTranslate(transform, 0, -ciImageSize.height)
+        var transform = CGAffineTransform(scaleX: 1, y: -1)
+        transform = transform.translatedBy(x: 0, y: -ciImageSize.height)
         
         for face in faces as! [CIFaceFeature] {
             
             print("Found bounds are \(face.bounds)")
             
             // Apply the transform to convert the coordinates
-            var faceViewBounds = CGRectApplyAffineTransform(face.bounds, transform)
+            var faceViewBounds = face.bounds.applying(transform)
             
             // Calculate the actual position and size of the rectangle in the image view
             let viewSize = personPic.bounds.size
@@ -48,15 +49,15 @@ class ViewController: UIViewController {
             let offsetX = (viewSize.width - ciImageSize.width * scale) / 2
             let offsetY = (viewSize.height - ciImageSize.height * scale) / 2
             
-            faceViewBounds = CGRectApplyAffineTransform(faceViewBounds, CGAffineTransformMakeScale(scale, scale))
+            faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
             faceViewBounds.origin.x += offsetX
             faceViewBounds.origin.y += offsetY
             
             let faceBox = UIView(frame: faceViewBounds)
-
+            
             faceBox.layer.borderWidth = 3
-            faceBox.layer.borderColor = UIColor.redColor().CGColor
-            faceBox.backgroundColor = UIColor.clearColor()
+            faceBox.layer.borderColor = UIColor.red.cgColor
+            faceBox.backgroundColor = UIColor.clear
             personPic.addSubview(faceBox)
             
             if face.hasLeftEyePosition {
@@ -68,4 +69,5 @@ class ViewController: UIViewController {
             }
         }
     }
+    
 }

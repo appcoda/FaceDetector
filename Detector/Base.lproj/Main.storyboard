@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cnS-dp-o7f">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cnS-dp-o7f">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Photo-->
@@ -22,7 +26,7 @@
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mz7-h3-qap" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="k6f-xb-a3W"/>
                             <constraint firstItem="mz7-h3-qap" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="olL-yH-Siw"/>
@@ -31,14 +35,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo" id="b7L-TZ-XLl"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personPic" destination="mz7-h3-qap" id="gnY-c4-RAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792.5" y="99.5"/>
+            <point key="canvasLocation" x="740" y="-583"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="uXy-LM-gbO">
@@ -49,18 +52,18 @@
                         <viewControllerLayoutGuide type="bottom" id="ynW-Gy-rCQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TkN-B3-Vyb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ik-iq-FXY">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="-19.5" y="-34.5" width="414" height="736"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="Sa9-uL-ycs"/>
                                     <constraint firstAttribute="height" constant="736" id="sP8-ty-Qht"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Ik-iq-FXY" firstAttribute="centerX" secondItem="TkN-B3-Vyb" secondAttribute="centerX" id="D6Y-xu-WOR"/>
                             <constraint firstItem="2Ik-iq-FXY" firstAttribute="centerY" secondItem="TkN-B3-Vyb" secondAttribute="centerY" id="X4Q-Ac-jLP"/>
@@ -73,14 +76,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="imageView" destination="2Ik-iq-FXY" id="ikg-mE-QIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTf-Ll-iIY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2089" y="100"/>
+            <point key="canvasLocation" x="2324" y="99"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CPg-pW-K6W">
@@ -89,7 +91,7 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qXi-zv-rGh">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="lSU-Xd-CXc"/>
