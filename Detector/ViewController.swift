@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         
         personPic.image = UIImage(named: "face-1")
 
-        detect()
+        DispatchQueue.main.async {
+            self.detect()
+        }
     }
     
     func detect() {
