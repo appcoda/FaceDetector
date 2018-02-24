@@ -12,6 +12,8 @@ import CoreImage
 class ViewController: UIViewController {
     @IBOutlet weak var personPic: UIImageView!
     
+    private var firstLayout = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,15 @@ class ViewController: UIViewController {
             self.detect()
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        if (!firstLayout) {
+            detect()
+        }else{
+            firstLayout = false
+        }
+    }
+    
     
     func detect() {
         
@@ -36,6 +47,12 @@ class ViewController: UIViewController {
         let ciImageSize = personciImage.extent.size
         var transform = CGAffineTransform(scaleX: 1, y: -1)
         transform = transform.translatedBy(x: 0, y: -ciImageSize.height)
+        
+        // Removing possible previously created frames
+        let existingFrames = personPic.subviews
+        for frame in existingFrames {
+            frame.removeFromSuperview()
+        }
         
         for face in faces as! [CIFaceFeature] {
             
@@ -73,3 +90,4 @@ class ViewController: UIViewController {
     }
     
 }
+
